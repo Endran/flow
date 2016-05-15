@@ -1,0 +1,61 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+    compileSdkVersion _compileSdkVersion
+    buildToolsVersion _buildToolsVersion
+
+    defaultConfig {
+        applicationId _applicationId
+        minSdkVersion _minSdkVersion
+        targetSdkVersion _targetSdkVersion
+        versionCode _versionCode
+        versionName _versionName
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile project(':core')
+    compile project(':backend')
+    compile project(':database')
+
+    compile "com.android.support:design:${appCompatVersion}"
+
+    apt "com.google.dagger:dagger-compiler:${daggerVersion}"
+
+    compile("de.psdev.licensesdialog:licensesdialog:${licenseDialogVersion}") {
+        exclude module: 'support-v4'
+    }
+
+    debugCompile "com.facebook.stetho:stetho:${stethoVersion}"
+    debugCompile "com.facebook.stetho:stetho-urlconnection:${stethoVersion}"
+
+    testCompile "junit:junit:${jUnitVersion}"
+    testCompile "org.jmockit:jmockit:${jMockitVersion}"
+    testCompile("com.squareup.assertj:assertj-android:${androidAssertJVersion}") {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    }
+}
