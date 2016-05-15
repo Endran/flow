@@ -10,6 +10,8 @@ import dagger.Component;
 import nl.endran.core.Core;
 import nl.endran.core.injections.AndroidModule;
 import nl.endran.core.injections.ModelModule;
+import nl.endran.skeleton.fragments.game.GameFragmentPresenter;
+import nl.endran.skeleton.fragments.game.GameFragmentView;
 import nl.endran.skeleton.fragments.SkeletonFragmentPresenter;
 import nl.endran.skeleton.fragments.SkeletonFragmentView;
 
@@ -22,4 +24,8 @@ public interface AppComponent {
     SkeletonFragmentView getSkeletonFragmentView();
 
     SkeletonFragmentPresenter getSkeletonFragmentPresenter();
+
+    GameFragmentView getGameFragmentView();
+
+    GameFragmentPresenter getGameFragmentPresenter();
 }
