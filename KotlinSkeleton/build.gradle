@@ -7,7 +7,7 @@ buildscript {
         maven { url 'https://jitpack.io' } // Needed for workaround version of SDK manager
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.0.0'
+        classpath 'com.android.tools.build:gradle:2.1.0'
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.11.3'
 //        classpath 'com.jakewharton.sdkmanager:gradle-plugin:0.12.+'
         classpath 'com.github.JakeWharton:sdk-manager-plugin:220bf7a88a7072df3ed16dc8466fb144f2817070' // Workaround version for gradle 2.10

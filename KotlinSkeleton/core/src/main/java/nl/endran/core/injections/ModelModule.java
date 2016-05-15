@@ -11,8 +11,6 @@ import dagger.Module;
 import dagger.Provides;
 import nl.endran.core.Core;
 import nl.endran.core.ModelInteractor;
-import nl.endran.core.collaborators.Backend;
-import nl.endran.core.collaborators.Database;
 
 @Module
 public class ModelModule {
@@ -22,8 +20,8 @@ public class ModelModule {
 
     @Provides
     @Singleton
-    public Core provideCore(Database database, Backend backend) {
-        return new Core(database, backend);
+    public Core provideCore() {
+        return new Core();
     }
 
     @Provides

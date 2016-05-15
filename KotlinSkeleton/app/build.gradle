@@ -29,8 +29,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
     compile project(':core')
-    compile project(':backend')
-    compile project(':database')
 
     compile "com.android.support:design:${appCompatVersion}"
 
